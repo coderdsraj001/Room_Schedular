@@ -1,4 +1,1 @@
-"# Room_Schedular" 
-"# Room_Schedular" 
-"# Room_Schedular" 
-"# Room_Schedular" 
+this is python and django based project.
