@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block content %}      
+
+{% load crispy_forms_tags %}
+
+<section class="myform-area">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="form-area login-form">
+                    <div class="form-content">
+                        <h2>Login</h2>
+                        <p>Welcome to Star School Management System. This one of the best School Management System in the world.</p>
+                    </div>
+                    <div class="form-input">
+                        <h2>Login Form</h2>
+                        <form method="POST">
+                            {% csrf_token %}
+                            {{ login_form|crispy }}
+                            <div class="myform-button">
+                                <button class="myform-btn">Login</button>
+                            </div>
+                        </form>
+                        <p class="text-center mt-2">Don't have an account? <a href="/register">Create an account</a>.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

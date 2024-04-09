@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block content %} 
+
+    <div class="container">
+        <h1>Booking Confirmation</h1>
+        <p>Booking made for {{ booking.guest_name }} - Room: {{ booking.room }} - Dates: {{ booking.check_in_date }} to {{ booking.check_out_date }}</p>
+    </div>
+
+{% endblock %}

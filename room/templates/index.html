@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block content %} 
+
+<div class="container py-5">
+    <center><h1>Total Rooms and Booking</h1></center>
+    <table class="table mt-4">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>price</th>
+                <th>Booking</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for room_with_bookings in rooms_with_bookings %}
+            <tr>
+                <td>{{room_with_bookings.room.name}}</td>
+                <td>{{room_with_bookings.room.price}}</td>
+                <td>
+                    {% if room_with_bookings.bookings %}
+                        <ul>
+                        {% for booking in room_with_bookings.bookings %}
+                            <li>Start Date: {{ booking.check_in_date }}, End Date: {{ booking.check_out_date }}</li>
+                        {% endfor %}
+                        </ul>
+                    {% else %}
+                        <a href="{{ room_with_bookings.room.id }}/book" class="btn btn-info">Book Room</a>
+                    {% endif %}
+                </td>
+                <td>
+                    <a href="edit-room/{{ room_with_bookings.room.id }}" class="btn btn-secondary">Edit</span></a>
+                    <a href="delete_room/{{ room_with_bookings.room.id }}" class="btn btn-danger">Delete</a>
+                </td>
+            </tr>
+            {% endfor %}
+            
+        </tbody>
+    </table>
+    <br>
+    <br>
+    <center><a href="create-room/" class="btn btn-primary">Add New Record</a></center>
+</div>
+{% endblock %}

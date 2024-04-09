@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %} 
+
+    <div class="container">
+        <h1>Make Booking for Room {{ room.room_number }}</h1>
+        <form method="post" id="add-room-form">
+            {% csrf_token %}
+            <label for="guest_name">Guest Name:</label><br>
+            <input type="text" id="guest_name" name="guest_name"><br>
+            <label for="check_in_date">Check-in Date:</label><br>
+            <input type="date" id="check_in_date" name="check_in_date"><br>
+            <label for="check_out_date">Check-out Date:</label><br>
+            <input type="date" id="check_out_date" name="check_out_date"><br><br>
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+
+{% endblock %}
